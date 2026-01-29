@@ -39,4 +39,29 @@ public class FacultyCourseSelectionService {
     public List<FacultyCourseSelection> getByEmployeeId(String employeeId) {
         return repository.findByEmployeeId(employeeId);
     }
+    
+    // UPDATE A SINGLE COURSE SELECTION
+    public FacultyCourseSelection updateSelection(Long id, FacultyCourseSelection updatedSelection) {
+        FacultyCourseSelection existing = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Selection not found with id: " + id));
+        
+        existing.setCourseCode(updatedSelection.getCourseCode());
+        existing.setCourseName(updatedSelection.getCourseName());
+        existing.setCategory(updatedSelection.getCategory());
+        existing.setSemester(updatedSelection.getSemester());
+        existing.setPriority(updatedSelection.getPriority());
+        
+        return repository.save(existing);
+    }
+    
+    // DELETE A SINGLE COURSE SELECTION
+    public void deleteSelection(Long id) {
+        repository.deleteById(id);
+    }
+    
+    // DELETE ALL SELECTIONS BY EMPLOYEE ID
+    public void deleteAllByEmployeeId(String employeeId) {
+        List<FacultyCourseSelection> selections = repository.findByEmployeeId(employeeId);
+        repository.deleteAll(selections);
+    }
 }

@@ -41,6 +41,26 @@ public class FacultyCourseSelectionController {
         List<FacultyCourseSelection> existing = service.getByEmployeeId(employeeId);
         return !existing.isEmpty();
     }
+    
+    // UPDATE A SINGLE COURSE SELECTION BY ID
+    @PutMapping("/update/{id}")
+    public FacultyCourseSelection updateSelection(
+            @PathVariable Long id,
+            @RequestBody FacultyCourseSelection updatedSelection) {
+        return service.updateSelection(id, updatedSelection);
+    }
+    
+    // DELETE A SINGLE COURSE SELECTION BY ID
+    @DeleteMapping("/delete/{id}")
+    public void deleteSelection(@PathVariable Long id) {
+        service.deleteSelection(id);
+    }
+    
+    // DELETE ALL SELECTIONS BY EMPLOYEE ID
+    @DeleteMapping("/delete-all/{employeeId}")
+    public void deleteAllByEmployeeId(@PathVariable String employeeId) {
+        service.deleteAllByEmployeeId(employeeId);
+    }
 }
 
 /* ---------- DTO ---------- */
