@@ -61,6 +61,12 @@ public class FacultyCourseSelectionController {
     public void deleteAllByEmployeeId(@PathVariable String employeeId) {
         service.deleteAllByEmployeeId(employeeId);
     }
+    
+    // GET ALL FACULTY COURSE SELECTIONS
+    @GetMapping("/all")
+    public List<FacultyCourseSelection> getAllSelections() {
+        return service.getAllSelections();
+    }
 }
 
 /* ---------- DTO ---------- */

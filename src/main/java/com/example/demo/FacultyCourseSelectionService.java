@@ -64,4 +64,9 @@ public class FacultyCourseSelectionService {
         List<FacultyCourseSelection> selections = repository.findByEmployeeId(employeeId);
         repository.deleteAll(selections);
     }
+    
+    // GET ALL SELECTIONS
+    public List<FacultyCourseSelection> getAllSelections() {
+        return repository.findAll();
+    }
 }
