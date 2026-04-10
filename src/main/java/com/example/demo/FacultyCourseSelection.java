@@ -21,6 +21,9 @@ public class FacultyCourseSelection {
     @Column(name = "department")
     private String department;
 
+    @Column(name = "cohort_name")
+    private String cohortName;
+
     @Column(name = "course_code")
     private String courseCode;
     
@@ -53,6 +56,9 @@ public class FacultyCourseSelection {
 
     public String getDepartment() { return department; }
     public void setDepartment(String department) { this.department = department; }
+
+    public String getCohortName() { return cohortName; }
+    public void setCohortName(String cohortName) { this.cohortName = cohortName; }
 
     public String getCourseCode() { return courseCode; }
     public void setCourseCode(String courseCode) { this.courseCode = courseCode; }

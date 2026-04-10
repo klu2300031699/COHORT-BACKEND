@@ -19,6 +19,7 @@ public class FacultyCourseSelectionService {
             String facultyName,
             String cohort,
             String department,
+            String cohortName,
             List<FacultyCourseSelection> courses) {
 
         List<FacultyCourseSelection> savedList = new ArrayList<>();
@@ -28,6 +29,7 @@ public class FacultyCourseSelectionService {
             course.setFacultyName(facultyName);
             course.setCohort(cohort);
             course.setDepartment(department);
+            course.setCohortName(cohortName);
 
             savedList.add(repository.save(course));
         }

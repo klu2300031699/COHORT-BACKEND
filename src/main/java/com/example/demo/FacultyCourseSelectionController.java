@@ -21,9 +21,10 @@ public class FacultyCourseSelectionController {
 
         return service.saveSelections(
                 request.getEmployeeId(),
-                request.getName(),  // Changed from getFacultyName() to getName()
+                request.getName(),
                 request.getCohort(),
                 request.getDepartment(),
+                request.getCohortName(),
                 request.getSelectedCourses()
         );
     }
@@ -73,9 +74,10 @@ public class FacultyCourseSelectionController {
 class FacultySelectionRequest {
 
     private String employeeId;
-    private String name;  // Changed from facultyName to name
+    private String name;
     private String cohort;
     private String department;
+    private String cohortName;
     private List<FacultyCourseSelection> selectedCourses;
 
     public String getEmployeeId() { return employeeId; }
@@ -89,6 +91,9 @@ class FacultySelectionRequest {
 
     public String getDepartment() { return department; }
     public void setDepartment(String department) { this.department = department; }
+
+    public String getCohortName() { return cohortName; }
+    public void setCohortName(String cohortName) { this.cohortName = cohortName; }
 
     public List<FacultyCourseSelection> getSelectedCourses() {
         return selectedCourses;
